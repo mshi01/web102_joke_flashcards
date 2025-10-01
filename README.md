@@ -1,4 +1,4 @@
-# Web Development Project 2 - *Joke Flashcardse*
+# Web Development Project 2 - *Joke Flashcards*
 
 Submitted by: **Mingzhu Shi**
 
