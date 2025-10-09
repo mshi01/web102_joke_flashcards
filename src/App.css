@@ -1,5 +1,5 @@
 .App {
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   background-image: url("./assets/joke_background.jpg");
   background-size: cover;
@@ -11,11 +11,11 @@
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
   font-weight: 700;
-  font-style: normal;
-  margin: 2em auto;
+  font-style: normal; 
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .card {
@@ -23,43 +23,113 @@
   font-weight: 900;
   width: 550px;
   height: 300px;
-  padding: 10px;
-  margin: 2em auto;
+  margin: 1em auto;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: white;
-  border: 1px solid black;
-  border-radius: 12px;
   cursor: pointer;
   font-size: 2em;
   font-weight: bold;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  perspective: 1000px;
 }
 
-.card.flipped {
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.card-inner.flipped {
+  transform: rotateX(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
   background: white;
-  border-color: black;
-  transform: rotateX(180deg);
-}
-
-.back {
-  transform: rotateX(180deg);
-}
-
-button {
-  padding: 0.6em 1.2em;
+  border: 2px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Architects Daughter", cursive;
+  font-weight: 900;
   font-size: 1em;
-  border: none;
-  border-radius: 8px;
-  background-color: black;
-  color: white;
-  cursor: pointer;
-  transition: background 0.2s ease;
+  color: #008080;
+  padding: 10px;
+  backface-visibility: hidden;
 }
 
-button:hover {
-  background-color: #3367d6;
+.card-back {
+  transform: rotateX(180deg); 
+}
+
+.input-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-section input {
+  font-size: 1em; 
+  padding: 8px;
+  width: 280px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.input-section button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: coral;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.input-section button:hover {
+  background-color: rgb(251, 118, 69);
+}
+
+.feedback {
+  font-weight: bold;
+  margin-top: 5px;
+  height: 24px;
+}
+
+.feedback.correct {
+  color: lightgreen;
+}
+
+.feedback.wrong {
+  color: lightyellow;
+}
+
+.navigation {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.navigation button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: coral;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.navigation button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
